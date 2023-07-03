@@ -14,6 +14,8 @@ app.listen(port, () => { console.log('Server listening on port ', port) })
 
 //instancia de la class
 const productService = new ProductManager('./productos.json')
+
+//productos
 app.get('/productos', async (req, res) => {
     let show = 0;
 
@@ -34,7 +36,7 @@ app.get('/productos', async (req, res) => {
 
 })
 
-
+//product/id
 app.get('/productos/:pid', (req, res) => {
 
     try {
