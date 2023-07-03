@@ -1,7 +1,6 @@
-const fs = require('fs')
+import fs from 'fs'
 
-
-class ProductManager {
+export class ProductManager {
     constructor(path) {
         this.products = [];
         this.path = path;
@@ -11,9 +10,9 @@ class ProductManager {
     }
 
     //cargo los productos
-   async loadProducts() {
+    async loadProducts() {
         try {
-            const data = await fs.promises.readFileSync(this.path, 'utf-8');
+            const data = await fs.promises.readFile(this.path, 'utf8');
             if (data) {
                 this.products = JSON.parse(data)
             }
@@ -24,9 +23,9 @@ class ProductManager {
     }
 
     //guardo los productos
-   async saveProducts() {
+    async saveProducts() {
         try {
-           await fs.promises.writeFileSync(this.path, JSON.stringify(this.products, null, '\t'));
+            await fs.promises.writeFile(this.path, JSON.stringify(this.products, null, '\t'));
         } catch (error) {
             console.log(error)
         }
@@ -43,7 +42,7 @@ class ProductManager {
         const idProducto = this.products.find((p) => p.id === id)
         if (!idProducto) {
             return console.log('PRODUCTO NO ENCONTRADO')
-           
+
         }
         return idProducto
 
@@ -97,9 +96,9 @@ class ProductManager {
 
     }
 
-    deleteProduct(id){
-        const productIndex = this.products.findIndex((p)=>p.id === id)
-        if(productIndex === -1){
+    deleteProduct(id) {
+        const productIndex = this.products.findIndex((p) => p.id === id)
+        if (productIndex === -1) {
             console.log('No se ha encontrado un producto')
             return;
         }
@@ -113,39 +112,59 @@ class ProductManager {
 
 }
 
+
+
 // #######################################################################################
 
 // PRUEBAS
 
 // Ejemplo de uso de la clase ProductManager
-const manager = new ProductManager("./productos.json");
+/* const manager = new ProductManager("./productos.json");
 
 
-// Agregar dos productos utilizando el método addProduct
-manager.addProduct({
+
+
+// Agregar tres productos utilizando el método addProduct
+
+let product = {
     title: "Producto 1",
     description: "Descripción del producto 1",
     price: 99.9,
     thumbnail: "thumbnail1.jpg",
-    code: "ProductoUNO",
+    code: "PRD001",
     stock: 10,
-});
+}
+manager.addProduct(product)
 
-manager.addProduct({
+
+product = {
     title: "Producto 2",
     description: "Descripción del producto 2",
     price: 199.9,
     thumbnail: "thumbnail2.jpg",
-    code: "ProductoDOS",
+    code: "PRD002",
     stock: 5,
-});
+}
+manager.addProduct(product);
 
+product = {
+    title: "Producto 3",
+    description: "Descripción del producto 3",
+    price: 249.99,
+    thumbnail: "thumbnail3.jpg",
+    code: "PRD003",
+    stock: 15,
+};
+
+manager.addProduct(product)
+ */
 // Obtener todos los productos utilizando el método getProducts
-console.log("Todos los productos:", manager.getProducts());
+// console.log("Todos los productos:", manager.getProducts());
 
-// Obtener un producto por su ID utilizando el método getProductById
+/* // Obtener un producto por su ID utilizando el método getProductById
 console.log("--------------Producto con ID 2:", manager.getProductById(2));
 
 // Buscar un producto que no existe
 console.log("--------------Producto con ID 3:", manager.getProductById(4));
 
+ */

@@ -1,0 +1,92 @@
+[
+	{
+		"id": 1,
+		"title": "Producto 1",
+		"description": "Descripción del producto 1",
+		"price": 99.9,
+		"thumbnail": "thumbnail1.jpg",
+		"code": "PRD001",
+		"stock": 10
+	},
+	{
+		"id": 2,
+		"title": "Producto 2",
+		"description": "Descripción del producto 2",
+		"price": 199.9,
+		"thumbnail": "thumbnail2.jpg",
+		"code": "PRD002",
+		"stock": 5
+	},
+	{
+		"id": 3,
+		"title": "Producto 3",
+		"description": "Descripción del producto 3",
+		"price": 249.99,
+		"thumbnail": "thumbnail3.jpg",
+		"code": "PRD003",
+		"stock": 15
+	},
+	{
+		"id": 4,
+		"title": "Producto 4",
+		"description": "Descripción del producto 4",
+		"price": 249.99,
+		"thumbnail": "thumbnail4.jpg",
+		"code": "PRD004",
+		"stock": 15
+	},
+	{
+		"id": 5,
+		"title": "Producto 5",
+		"description": "Descripción del producto 5",
+		"price": 249.99,
+		"thumbnail": "thumbnail5.jpg",
+		"code": "PRD005",
+		"stock": 15
+	},
+	{
+		"id": 6,
+		"title": "Producto 6",
+		"description": "Descripción del producto 6",
+		"price": 249.99,
+		"thumbnail": "thumbnail6.jpg",
+		"code": "PRD006",
+		"stock": 15
+	},
+	{
+		"id": 7,
+		"title": "Producto 7",
+		"description": "Descripción del producto 7",
+		"price": 249.99,
+		"thumbnail": "thumbnail7.jpg",
+		"code": "PRD007",
+		"stock": 15
+	},
+	{
+		"id": 8,
+		"title": "Producto 8",
+		"description": "Descripción del producto 8",
+		"price": 249.99,
+		"thumbnail": "thumbnail8.jpg",
+		"code": "PRD008",
+		"stock": 15
+	},
+	{
+		"id": 9,
+		"title": "Producto 9",
+		"description": "Descripción del producto 9",
+		"price": 249.99,
+		"thumbnail": "thumbnail9.jpg",
+		"code": "PRD009",
+		"stock": 15
+	},
+	{
+		"id": 10,
+		"title": "Producto 10",
+		"description": "Descripción del producto 10",
+		"price": 249.99,
+		"thumbnail": "thumbnail10.jpg",
+		"code": "PRD0010",
+		"stock": 15
+	}
+]
