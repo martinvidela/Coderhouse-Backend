@@ -2,6 +2,7 @@
 //--Imports
 import express from 'express'
 import { ProductManager } from './ProductManager.js';
+import {routerProducts} from './routes/productos.routes.js';
 
 const port = 8080;
 
@@ -9,6 +10,7 @@ const port = 8080;
 const app = express()
 
 app.use(express.json())
+app.use(express.urlencoded({extended:true}));
 
 //--Up
 app.listen(port, () => console.log('Server listening on port ', port))
@@ -19,7 +21,6 @@ const productService = new ProductManager('./productos.json')
 //--Routes
 app.get('/productos', async (req, res) => {
     let show = 0;
-
     try {
         const productos = await productService.getProducts()
         const limit = parseInt(req.query.limit)

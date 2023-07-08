@@ -119,12 +119,12 @@ export class ProductManager {
 // PRUEBAS
 
 // Ejemplo de uso de la clase ProductManager
-/* const manager = new ProductManager("./productos.json");
+/*  const manager = new ProductManager("./productos.json");
 
 
 
 
-// Agregar tres productos utilizando el método addProduct
+ //Agregar tres productos utilizando el método addProduct
 
 let product = {
     title: "Producto 1",
@@ -157,14 +157,14 @@ product = {
 };
 
 manager.addProduct(product)
- */
-// Obtener todos los productos utilizando el método getProducts
-// console.log("Todos los productos:", manager.getProducts());
 
-/* // Obtener un producto por su ID utilizando el método getProductById
-console.log("--------------Producto con ID 2:", manager.getProductById(2));
+// Obtener todos los productos utilizando el método getProducts
+ console.log("Todos los productos:", manager.getProducts()); */
+
+ // Obtener un producto por su ID utilizando el método getProductById
+//console.log("--------------Producto con ID 2:", manager.getProductById(2));
 
 // Buscar un producto que no existe
-console.log("--------------Producto con ID 3:", manager.getProductById(4));
+//console.log("--------------Producto con ID 3:", manager.getProductById(4));
 
- */
+ 
