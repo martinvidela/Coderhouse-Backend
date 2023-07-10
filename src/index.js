@@ -1,22 +1,32 @@
 
 //--Imports
 import express from 'express'
-import { ProductManager } from './ProductManager.js';
-import {routerProducts} from './routes/productos.routes.js';
+import { ProductManager } from './dao/ProductManager.js';
+import { routerProducts } from './routes/productos.routes.js';
+import { routerCarts } from './routes/carts.routes.js';
+import { __dirname } from './utils.js';
+import path from 'path'
+
 
 const port = 8080;
 
 //--Server App
 const app = express()
-
 app.use(express.json())
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname,'/public')))
+
+//--Routes
+app.use('/api/productos', routerProducts)
+app.use('/api/carts', routerCarts)
+
 
 //--Up
 app.listen(port, () => console.log('Server listening on port ', port))
 
 //--Class
 const productService = new ProductManager('./productos.json')
+
 
 //--Routes
 app.get('/productos', async (req, res) => {
@@ -34,8 +44,6 @@ app.get('/productos', async (req, res) => {
         res.send(error.message)
         console.log(error)
     }
-
-
 })
 
 app.get('/productos/:pid', (req, res) => {
@@ -53,7 +61,4 @@ app.get('/productos/:pid', (req, res) => {
         res.send('El producto no existe')
 
     }
-
-
-
 })

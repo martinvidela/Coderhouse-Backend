@@ -167,4 +167,3 @@ manager.addProduct(product)
 // Buscar un producto que no existe
 //console.log("--------------Producto con ID 3:", manager.getProductById(4));
 
- 
