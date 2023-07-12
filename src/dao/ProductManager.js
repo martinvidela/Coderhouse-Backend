@@ -52,7 +52,6 @@ export class ProductManager {
 
     //agrego productos
     addProduct({ title, description, price, thumbnail, code, stock }) {
-        //ultimo id
         let newId;
         if (!this.products.length) {
             newId = 1
