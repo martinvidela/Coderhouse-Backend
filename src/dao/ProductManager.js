@@ -1,9 +1,11 @@
 import fs from 'fs'
+import { __dirname } from '../utils.js';
+import path from 'path'
 
 export class ProductManager {
-    constructor(path) {
+    constructor(fileName) {
         this.products = [];
-        this.path = path;
+        this.path = path.join(__dirname, `/files/${fileName}`);
         this.loadProducts();
 
 
