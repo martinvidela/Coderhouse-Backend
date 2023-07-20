@@ -21,7 +21,11 @@ router.post('/', async (req, res) => {
 router.get('/:cid', (req, res) => {
     const cartId = req.params.cid
     const result = cartService.getCartById(cartId)
-    res.send(result)
+    if (!cartId) {
+        return 'Product not available'
+    } else {
+        res.send(result)
+    }
 
 
 })
@@ -40,7 +44,7 @@ router.post('/:cid/productos/:pid', async (req, res) => {
             cartService.saveCarts()
             res.json({ status: 'success', data: cart })
         } else {
-           const newProduct = {
+            const newProduct = {
                 id: prodId,
                 quantity: 1
             }

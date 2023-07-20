@@ -1,1 +1,17 @@
-<h1>pagina principal</h1>
+<h1 class="PrdOnSale">Products on sale!</h1>
+
+<div class="container">
+    {{#each products}}
+    <div class="card">
+        <div class="card-header">
+            <img class="cardImage" src={{this.thumbnail}} alt="">
+        </div>
+        <div class="card-body">
+            <h2>{{this.title}}</h2>
+            <p>{{this.description}}</p>
+            <h3>{{this.price}}</h3>
+            <a href="#" class="btn">Buy now!</a>
+        </div>
+    </div>
+    {{/each}}
+</div>

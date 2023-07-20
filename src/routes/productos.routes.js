@@ -9,7 +9,7 @@ const productService = new ProductManager('productos.json')
 // -- Validar datos (middleware)
 const validateFields = (req, res, next) => {
     const productInfo = req.body
-    if (!productInfo.title || !productInfo.description || !productInfo.code || !productInfo.price || !productInfo.stock || !productInfo.category)
+    if (!productInfo.title || !productInfo.description || !productInfo.code || !productInfo.price || !productInfo.stock)
         return res.json({ status: 'error', message: "Incomplete fields" })
     else {
         next()

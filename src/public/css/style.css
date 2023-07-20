@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Helvetica;
+}
+
+body {
+    background-color: rgb(24, 24, 24);
+}
+
+.PrdOnSale {
+    font-style: italic;
+    margin-top: 20px;
+    margin-left: 16%;
+    color: white;
+}
+
+.WannaAdd {
+    text-align: center;
+    color: white;
+
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+    align-items: center;
+
+}
+
+.form-input {
+    width: 300px;
+    padding: 5px;
+    margin: 3px;
+}
+
+.cardImage {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+
+.bodyMain .container {
+    display: flex;
+    margin: 20px auto;
+    flex-wrap: wrap;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.card {
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 30px #747474;
+
+}
+
+
+.card-header {
+    height: 200px;
+    width: 100%;
+    object-position: 50% 50%;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 20px 10px;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+}
+
+.btn {
+    background-color: black;
+    color: #fff;
+    display: block;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 10px;
+    border-radius: 8px;
+}
+
+@media(min-width:480px) {
+    .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        width: 380px;
+
+
+    }
+
+    .card-body {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cardImage {
+        max-width: 200px;
+    }
+
+    .container2{
+        display: flex;
+        justify-content: space-around;
+    }
+}
