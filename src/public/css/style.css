@@ -101,6 +101,13 @@ body {
     background-color: rgb(73, 73, 73);
 }
 
+.list-products-all{
+    
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    
+}
 
 @media(min-width:480px) {
     .container {
