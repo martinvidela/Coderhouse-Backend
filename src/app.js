@@ -8,7 +8,7 @@ import path from 'path'
 import { Server } from 'socket.io'
 import { viewRoutes } from './routes/views.routes.js';
 import { ProductManager } from './dao/ProductManager.js';
-const productService = new ProductManager('productos.json')
+const productService = new ProductManager('products.json')
 
 const port = 8080;
 

@@ -5,7 +5,7 @@ import { ProductManager } from "../dao/ProductManager.js";
 const router = Router()
 
 const cartService = new CartManager('carts.json')
-const productService = new ProductManager('productos.json')
+const productService = new ProductManager('products.json')
 
 
 router.post('/', async (req, res) => {

@@ -6,7 +6,7 @@ const router = Router()
 
 // Productos
 
-const productService = new ProductManager('productos.json')
+const productService = new ProductManager('products.json')
 
 
 router.get('/', async (req, res) => {

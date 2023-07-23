@@ -4,7 +4,7 @@ import { ProductManager } from "../dao/ProductManager.js";
 const router = Router()
 
 //-- Class
-const productService = new ProductManager('productos.json')
+const productService = new ProductManager('products.json')
 
 // -- Validar datos (middleware)
 const validateFields = (req, res, next) => {
