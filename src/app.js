@@ -8,9 +8,12 @@ import path from 'path'
 import { Server } from 'socket.io'
 import { viewRoutes } from './routes/views.routes.js';
 import { ProductManager } from './dao/ProductManager.js';
+import { config } from './config/config.js'
+import { connectDB } from './config/dbConnection.js';
+
 const productService = new ProductManager('products.json')
 
-const port = 8080;
+const port = config.server.port;
 
 //--Server App
 const app = express()
@@ -24,6 +27,9 @@ app.engine('.hbs', engine({ extname: '.hbs' }));
 app.set('view engine', '.hbs');
 app.set('views', path.join(__dirname, '/views'));
 
+//--DataBase
+connectDB()
+
 //--Websocket
 const io = new Server(httpServer)
 
@@ -32,7 +38,7 @@ const io = new Server(httpServer)
 //realTimeProducts
 io.on('connection', async (socket) => {
     console.log('client connected')
-    
+
     //lista de productos para RTP
     const listProductRealTime = await productService.getProducts()
     //sending list
@@ -45,7 +51,7 @@ io.on('connection', async (socket) => {
     socket.on('deleteProduct', async (id) => {
         await productService.deleteProduct(Number(id))
     })
-    
+
 })
 
 

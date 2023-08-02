@@ -1,20 +1,13 @@
 import { Router } from "express";
-import { ProductManager } from "../dao/ProductManager.js";
+import { productsMongo } from "../dao/managers/mongo/productsMongo.js";
+
+
 
 const router = Router()
 
 //-- Class
 const productService = new ProductManager('products.json')
 
-// -- Validar datos (middleware)
-const validateFields = (req, res, next) => {
-    const productInfo = req.body
-    if (!productInfo.title || !productInfo.description || !productInfo.code || !productInfo.price || !productInfo.stock)
-        return res.json({ status: 'error', message: "Incomplete fields" })
-    else {
-        next()
-    }
-}
 
 
 router.get('/', async (req, res) => {
@@ -51,7 +44,7 @@ router.get('/:pid', (req, res) => {
 })
 
 
-router.post('/', validateFields, async (req, res) => {
+router.post('/', async (req, res) => {
     
         const productoInfo = req.body
         const newProduct = await productService.addProduct(productoInfo)
