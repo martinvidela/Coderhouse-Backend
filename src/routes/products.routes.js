@@ -39,7 +39,7 @@ router.get("/:pid", (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const productoInfo = req.body;
-    console.log('this', req.body)
+    console.log('Producto recibido ', req.body)
     const productCreated = await productService.addProduct(productoInfo);
     console.log(productCreated);
     res.json({

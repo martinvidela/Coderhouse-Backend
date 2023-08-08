@@ -10,6 +10,7 @@ const addProduct = (e) => {
     title: formData.get("title"),
     description: formData.get("description"),
     price: formData.get("price"),
+    thumbnail: formData.get("thumbnail"),
     code: formData.get("code"),
     stock: formData.get("stock"),
     category: formData.get("category"),
@@ -19,7 +20,7 @@ const addProduct = (e) => {
 };
 
 const deleteProduct = (e) => {
-  socketClient.emit("deleteProduct", e.target.id);
+  socketClient.emit("deleteProduct", e.target);
 };
 
 socketClient.on("listProductsReal", (listProductRealTime) => {

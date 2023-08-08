@@ -16,4 +16,7 @@ router.get("/", async (req, res) => {
   });
 });
 
+router.get("/support", async (req, res) => {
+  res.render("support");
+});
 export { router as viewRoutes };
