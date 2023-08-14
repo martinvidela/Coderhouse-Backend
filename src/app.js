@@ -34,13 +34,7 @@ const httpServer = app.listen(port, () =>
 const io = new Server(httpServer);
 
 //*--Handlebars
-app.engine(
-  ".hbs",
-  engine({
-    extname: ".hbs",
-    handlebars: allowInsecurePrototypeAccess(Handlebars),
-  })
-);
+app.engine(".hbs", engine({extname:".hbs"}));
 app.set("view engine", ".hbs");
 app.set("views", path.join(__dirname, "/views"));
 

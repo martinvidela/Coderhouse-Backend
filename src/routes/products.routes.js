@@ -60,7 +60,7 @@ router.put("/:pid", async (req, res) => {
 });
 
 router.delete("/:pid", async (req, res) => {
-  const prodId = parseInt(req.params.pid);
+  const prodId = req.params.pid;
   const deleteId = await productService.deleteProduct(prodId);
   res.json({ status: "success", data: deleteId, message: "product deleted" });
 });

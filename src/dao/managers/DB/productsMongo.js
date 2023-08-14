@@ -7,7 +7,7 @@ export class ProductsMongo {
 
   async getProducts() {
     try {
-      const products = await this.model.find();
+      const products = await this.model.find().lean();
       console.log(products);
       return products;
     } catch (error) {
@@ -35,8 +35,10 @@ export class ProductsMongo {
 
   async deleteProduct(id) {
     try {
-      const product = await this.model.deleteOne(id);
-      return product;
+      const productDeleted = await this.model.findByIdAndDelete(id);
+      if (productDeleted) {
+        return 'Product deleted.';
+      }
     } catch (error) {
       console.log(error.message);
     }
