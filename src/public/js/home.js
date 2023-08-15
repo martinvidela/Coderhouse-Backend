@@ -19,6 +19,8 @@ const addProduct = (e) => {
   formProduct.reset();
 };
 
+
+
 const deleteProduct = (e) => {
   socketClient.emit("deleteProduct", e.target);
 };
