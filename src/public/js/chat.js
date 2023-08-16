@@ -4,9 +4,9 @@ const chatbox = document.getElementById("chatbox");
 const chat = document.getElementById("messageLogs");
 
 Swal.fire({
-  title: "Identificate",
+  title: "Bienvenido al soporte",
   input: "text",
-  text: "Ingresa un nombre de usuario",
+  text: "Ingresa un nombre de usuario..",
   inputValidator: (value) => {
     if (!value) {
       return "El nombre de usuario es obligatorio";

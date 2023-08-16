@@ -5,7 +5,7 @@ export class ProductsMongo {
     this.model = ProductModel;
   }
 
-  async getProducts() {
+  getProducts = async () => {
     try {
       const products = await this.model.find().lean();
       console.log(products);
@@ -13,9 +13,9 @@ export class ProductsMongo {
     } catch (error) {
       console.log(error.message);
     }
-  }
+  };
 
-  async addProduct(productInfo) {
+  addProduct = async(productInfo)=> {
     try {
       const productCreated = await this.model.create(productInfo);
       return productCreated;
@@ -24,23 +24,32 @@ export class ProductsMongo {
     }
   }
 
-  async getProductById(id) {
+  getProductById = async (id) => {
     try {
       const product = await this.model.findById(id);
       return product;
     } catch (error) {
       console.log(error.message);
     }
-  }
+  };
 
-  async deleteProduct(id) {
+  deleteProduct = async (id) => {
     try {
       const productDeleted = await this.model.findByIdAndDelete(id);
       if (productDeleted) {
-        return 'Product deleted.';
+        return "Product deleted.";
       }
     } catch (error) {
       console.log(error.message);
     }
-  }
+  };
 }
+
+/* updateProduct = async (id, product) => {
+  try {
+    return await productsModel.findByIdAndUpdate(id, { $set: product });
+  } catch (err) {
+    return err;
+  }
+};
+ */

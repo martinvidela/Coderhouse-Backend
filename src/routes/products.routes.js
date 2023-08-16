@@ -1,21 +1,19 @@
 import { Router } from "express";
-import { ProductsMongo } from "../dao/managers/DB/productsMongo.js";
+import { pm } from "../dao/index.js";
 const router = Router();
 
 //-- Class
-const productService = new ProductsMongo();
 
 router.get("/", async (req, res) => {
   let show = 0;
   try {
-    const productos = await productService.getProducts();
+    const productos = await pm.getProducts();
     const limit = parseInt(req.query.limit);
     if (limit > 0) {
       show = productos.filter((prod) => prod.id <= limit);
     } else {
       show = productos;
     }
-    console.log(productos);
     res.json({ status: "success", data: productos });
   } catch (error) {
     res.json({ status: "error", message: error.message });
@@ -25,7 +23,7 @@ router.get("/", async (req, res) => {
 router.get("/:pid", (req, res) => {
   try {
     const prodId = parseInt(req.params.pid);
-    const resultado = productService.getProductById(prodId);
+    const resultado = pm.getProductById(prodId);
     if (!resultado) {
       res.send("El producto no existe");
     } else {
@@ -40,7 +38,7 @@ router.post("/", async (req, res) => {
   try {
     const productoInfo = req.body;
     console.log('Producto recibido ', req.body)
-    const productCreated = await productService.addProduct(productoInfo);
+    const productCreated = await pm.addProduct(productoInfo);
     console.log(productCreated);
     res.json({
       status: "success",
@@ -54,14 +52,14 @@ router.put("/:pid", async (req, res) => {
   try {
     const prodId = parseInt(req.params.pid);
     const productInfo = req.body;
-    const update = await productService.updateProduct(prodId, productInfo);
+    const update = await pm.updateProduct(prodId, productInfo);
     res.json({ status: "success", data: update, message: "product updated" });
   } catch (error) {}
 });
 
 router.delete("/:pid", async (req, res) => {
   const prodId = req.params.pid;
-  const deleteId = await productService.deleteProduct(prodId);
+  const deleteId = await pm.deleteProduct(prodId);
   res.json({ status: "success", data: deleteId, message: "product deleted" });
 });
 

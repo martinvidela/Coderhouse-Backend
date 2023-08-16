@@ -16,6 +16,11 @@ router.get("/", async (req, res) => {
   });
 });
 
+router.get("/realtimeproducts", (req, res) => {
+  res.render("realTimeProducts");
+});
+
+
 router.get("/support", async (req, res) => {
   res.render("support");
 });
