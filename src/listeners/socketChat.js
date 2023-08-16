@@ -11,8 +11,7 @@ export const socketChat = (socketServer) => {
   socketServer.on("message", async (data) => {
     console.log("data", data);
     const messageCreated = await chatModel.create(data);
-    const messages = await chatModel.find();
-    io.emit("messageHistory", messages);
+    io.emit("messageHistory", messageCreated);
   });
 };
 
