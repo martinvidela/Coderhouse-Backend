@@ -1,6 +1,6 @@
-
+{{#if payload}}
 <div class="container">
-  {{#each products}}
+  {{#each payload}}
     <div class="card">
       <div class="card-header">
         <img class="cardImage" src={{this.thumbnail}} alt="" />
@@ -15,3 +15,6 @@
     </div>
   {{/each}}
 </div>
+{{else}}
+<h2>No products available</h2>
+{{/if}}

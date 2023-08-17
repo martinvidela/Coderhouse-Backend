@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
 
 router.get("/products", async (req, res) => {
   try {
-    const { stock, limit = 10, page = 1, sort = "asc" } = req.query;
+    const { stock, limit = 10, page = 1, sort = "asc", category } = req.query;
     const stockValue = stock === 0 ? undefined : parseInt(stock);
     if (!["asc", "desc"].includes(sort)) {
       return res.render("products", { error: "orden no valido" });
@@ -23,18 +23,37 @@ router.get("/products", async (req, res) => {
     if (stockValue) {
       query = { stock: { $gte: stockValue } };
     }
+    if (category === "Office" || category === "Gaming") {
+      query.category = category;
+    }
     let productos = await pm.getWithPaginate(query, {
       page,
       limit,
       sort: { price: sortValue },
+      lean: true,
     });
     console.log(productos);
-    res.render("products", {
-      title: "Products on sale!",
-      products: productos,
-    });
+    const baseUrl = `${req.protocol}://${req.get("host")}${req.originalUrl}`;
+
+    const resultProductsView = {
+      status: "success",
+      payload: result.docs,
+      totalPages: result.totalPages,
+      prevPage: result.prevPage,
+      nextPage: result.nextPage,
+      page: result.page,
+      hasPrevPage: result.hasPrevPage,
+      haxNextPage: result.hasNextPage,
+      prevLink: result.hasPrevPage
+        ? `${baseUrl}?page=${result.prevPage}`
+        : null,
+      nextLink: result.hasNextPage
+        ? `${baseUrl}?page=${result.nextPage}`
+        : null,
+    };
+    res.render("products", resultProductsView);
   } catch (error) {
-    res.render('products', {error:'Error!'})
+    res.render("products", { error: "Error!" });
   }
 });
 
