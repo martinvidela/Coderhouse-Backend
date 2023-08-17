@@ -8,21 +8,27 @@ export class ProductsMongo {
   getProducts = async () => {
     try {
       const products = await this.model.find().lean();
-      console.log(products);
       return products;
     } catch (error) {
       console.log(error.message);
     }
   };
 
-  addProduct = async(productInfo)=> {
+  getWithPaginate = async (query,options) => {
+    try {
+      const result = await this.model.paginate(query, options);
+      return result;
+    } catch (error) {}
+  };
+
+  addProduct = async (productInfo) => {
     try {
       const productCreated = await this.model.create(productInfo);
       return productCreated;
     } catch (error) {
       console.log(error.message);
     }
-  }
+  };
 
   getProductById = async (id) => {
     try {

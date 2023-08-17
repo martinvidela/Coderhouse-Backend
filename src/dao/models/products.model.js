@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-
+import mongoosePaginate from 'mongoose-paginate-v2'
 // nombre de la coleccion
 
 const productsCollection = "products";
@@ -16,4 +16,6 @@ const productSchema = new mongoose.Schema({
   category: { type: String, required:true, enum: ["Gaming", "Office"] },
 });
 
+
+productSchema.plugin(mongoosePaginate)
 export const ProductModel = mongoose.model(productsCollection, productSchema);

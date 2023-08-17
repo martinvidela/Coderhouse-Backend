@@ -18,8 +18,6 @@ const port = config.server.port;
 //--Server App
 const app = express();
 
-//!--DataBase
-connectDB();
 //!--Middlewares
 app.use(express.urlencoded({ extended: true })); // entender json de forms
 app.use(express.json());
@@ -35,13 +33,9 @@ app.engine(".hbs", engine({ extname: ".hbs" }));
 app.set("view engine", ".hbs");
 app.set("views", path.join(__dirname, "/views"));
 
-const productService = new ProductsMongo();
-
-//*---------------  realTimeProducts --------------
-
-
 //--Routes
 app.use("/", viewRoutes);
+app.use("/products", viewRoutes);
 app.use("/support", viewRoutes);
 app.use("/api/products", routerProducts);
 app.use("/api/carts", routerCarts);
