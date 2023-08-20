@@ -7,14 +7,13 @@ export class ProductsMongo {
 
   getProducts = async () => {
     try {
-      const products = await this.model.find().lean();
-      return products;
+      return await this.model.find().lean();
     } catch (error) {
       console.log(error.message);
     }
   };
 
-  getWithPaginate = async (query,options) => {
+  getWithPaginate = async (query, options) => {
     try {
       const result = await this.model.paginate(query, options);
       return result;
