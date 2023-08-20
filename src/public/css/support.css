@@ -1,0 +1,42 @@
+.containerSupport {
+  background-color: rgb(100, 100, 100);
+  padding: 5px;
+}
+.username{
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+    margin: 10px;
+    font-size: 20px;
+    color: whitesmoke;
+}
+.inputMessage {
+  padding: 6px;
+  border-radius: 3px;
+  border-color: transparent;
+  outline: none;
+}
+.inputMessage:focus {
+  outline: none;
+}
+.inputSend {
+  padding: 4px;
+}
+.buttonClear {
+  padding: 4px;
+}
+.form {
+  display: flex;
+  justify-content: center;
+}
+.chat {
+  margin-top: 15px;
+  text-align: center;
+  text-justify: auto;
+  margin-left: 40%;
+}
+.chat p{
+    margin: 3px;
+    text-align: initial;
+    color: white;
+}
