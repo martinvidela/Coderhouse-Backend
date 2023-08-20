@@ -93,22 +93,8 @@ body {
   margin-top: 10px;
   border-radius: 8px;
 }
-.btn-del {
-  background-color: black;
-  color: #fff;
-  display: block;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-  margin-top: 10px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.2s;
-}
 
-.btn-del:hover {
-  background-color: rgb(73, 73, 73);
-}
+
 
 .list-products-all {
   display: grid;

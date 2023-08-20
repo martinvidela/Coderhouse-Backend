@@ -38,7 +38,7 @@ socketClient.on("listProductsReal", (listProductRealTime) => {
             <h2>${product.title}</h2>
             <p>${product.description}</p>
             <h3>${product.price}</h3>
-            <button id=${product.id} class='btnDelete btn-del'>Delete </button>
+            <button class='btn'> Add to cart </button>
             </div>
         </div>
         `;
@@ -47,6 +47,11 @@ socketClient.on("listProductsReal", (listProductRealTime) => {
 
 btnAddForm.addEventListener("click", addProduct);
 
-document.addEventListener("click", (e) => {
-  e.target.matches(".btn-del") && deleteProduct(e);
-});
+const btnDel = document.getElementById('delete-btn')
+const inputId = document.getElementById('id-product')
+
+btnDel.addEventListener('click', ()=>{
+  const deleteId = inputId.value
+  socketClient.emit('deleteProduct', deleteId)
+  inputId.value = "";
+})
