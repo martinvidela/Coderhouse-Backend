@@ -8,8 +8,6 @@ import path from "path";
 import { Server } from "socket.io";
 import { viewRoutes } from "./routes/views.routes.js";
 import { config } from "./config/config.js";
-import { connectDB } from "./config/dbConnection.js";
-import { ProductsMongo } from "./dao/managers/DB/productsMongo.js";
 import { socketChat } from "./listeners/socketChat.js";
 import { socketProducts } from "./listeners/socketProducts.js";
 

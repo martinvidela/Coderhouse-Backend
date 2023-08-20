@@ -1,16 +1,13 @@
 import mongoose from "mongoose";
 
-const chatCollection = 'chatMessages'
+const chatCollection = "chatMessages";
 
-const messageSchema = new mongoose.Schema({
-    user:{
-        type:String,
-        required:true
-    },
-    message:{
-        type:String,
-        require:true
-    }
-})
+const messageSchema = new mongoose.Schema(
+  {
+    user: String,
+    message: String,
+  },
+  { timestamps: { createdAt: "created_at", updatedAt: "updated_at" } }
+);
 
-export const chatModel = mongoose.model(chatCollection, messageSchema)
+export const chatModel = mongoose.model(chatCollection, messageSchema);

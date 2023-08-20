@@ -1,17 +1,8 @@
 import { chatModel } from "../dao/models/chat.model.js";
 
-export const socketChat = (socketServer) => {
-  socketServer.on("connection", async (socket) => {
-    socket.on("authenticated", async (msg) => {
-      const messages = await chatModel.find();
-      socket.emit("messageHistory", messages);
-      socket.broadcast.emit("newUser", msg);
-    });
+const socketChat = (socketServer) => {
+  socketServer.on("connection",async(socket)=>{
+    console.log('new user connected')
+    socket.on()
   });
-  socketServer.on("message", async (data) => {
-    console.log("data", data);
-    const messageCreated = await chatModel.create(data);
-    io.emit("messageHistory", messageCreated);
-  });
-};
-
+}

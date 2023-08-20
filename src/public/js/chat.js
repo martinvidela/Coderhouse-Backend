@@ -1,22 +1,28 @@
 const socketClient = io();
+const userName = getElementById("username");
+const chat = document.getElementById("chat");
 
-const chatbox = document.getElementById("chatbox");
-const chat = document.getElementById("messageLogs");
+let user = null;
 
-Swal.fire({
-  title: "Bienvenido al soporte",
-  input: "text",
-  text: "Ingresa un nombre de usuario..",
-  inputValidator: (value) => {
-    if (!value) {
-      return "El nombre de usuario es obligatorio";
-    }
-  },
-  allowOutsideClick: false,
-}).then((result) => {
-  user = result.value;
-  socketClient.emit("authenticated", `usuario ${user} ha inciado sesion`);
-});
+if (!user) {
+  Swal.fire({
+    title: "Hi! Welcome to the support chat.",
+    input: "text",
+    text: "Enter a username",
+    inputValidator: (value) => {
+      if (!value) {
+        return "Please enter a valid username :)";
+      }
+    },
+    allowOutsideClick: false,
+  }).then((result) => {
+    user = result.value;
+    username.innerHTML = user;
+    socketClient.emit("authenticated", `usuario ${user} ha inciado sesion`);
+  });
+}
+
+
 
 chatbox.addEventListener("keyup", (e) => {
   if (e.key === "Enter") {

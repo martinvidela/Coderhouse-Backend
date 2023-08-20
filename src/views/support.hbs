@@ -1,14 +1,24 @@
-<h1>Pagina de inicio</h1>
+<div id="chat-container" class="containerSupport">
+  <h4 id="username">Username</h4>
+  <div id="chat-messages">
+    <div class="message sender">
+      <p id="chat"> </p>
+    </div>
 
-<div>
-    <input type="text" name="" id="chatbox" placeholder="Ingrese su mensaje">
+  </div>
+  <form id="formulario">
+    <input
+      type="text"
+      name="mensaje"
+      id="mensaje"
+      placeholder="Type your message..."
+    />
+    <input type="submit" value="send" />
+    <button id="clearChat">Vaciar Chat</button>
+
+  </form>
+
 </div>
-
-<div id="messageLogs">
-
-
-</div>
-
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="socket.io/socket.io.js"></script>
