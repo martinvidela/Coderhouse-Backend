@@ -1,149 +1,141 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Helvetica;
+  margin: 0 ;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Helvetica;
 }
 
 body {
-    background-color: rgb(204, 204, 204);
+  background-color: rgb(204, 204, 204);
 }
 
 .PrdOnSale {
-    font-style: italic;
-    margin-top: 20px;
-    margin-left: 16%;
-    color: white;
+  font-style: italic;
+  margin-top: 20px;
+  margin-left: 16%;
+  color: white;
 }
 
 .WannaAdd {
-    text-align: center;
-    color: white;
-
+  text-align: center;
+  color: white;
 }
 
 .formulario {
-    display: flex;
-    flex-direction: column;
-    margin: 20px auto;
-    align-items: center;
-    width: 350px;
-    padding: 15px;
-    border-radius: 10px;
-    background-color: crimson;
-    
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto;
+  align-items: center;
+  width: 350px;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: crimson;
 }
 
-.btnAdd{
-padding: 5px;
-width: 30%;
-
+.btnAdd {
+  margin-top: 3px;
+  padding: 3px;
+  width: 30%;
 }
 
 .form-input {
-    width: 300px;
-    padding: 6px;
-    margin: 5px;
-    border: none;
+  width: 300px;
+  padding: 6px;
+  margin: 5px;
+  border: none;
+  border-radius: 3px;
+  outline: none;
 }
 
 .cardImage {
-    width: 100%;
-    display: block;
-    margin: 0 auto;
+  width: 100%;
+  display: block;
+  margin: 0 auto;
 }
 
-
 .bodyMain .container {
-    display: flex;
-    margin: 20px auto;
-    flex-wrap: wrap;
-    width: 90%;
-    max-width: 1200px;
+  display: flex;
+  margin: 0px auto;
+  flex-wrap: wrap;
+  width: 90%;
+  max-width: 1200px;
+  gap: 30px;
 }
 
 .card {
-    background-color: rgb(255, 255, 255);
-    margin-bottom: 10px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 30px #747474;
-
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 30px #747474;
 }
 
-
 .card-header {
-    height: 200px;
-    width: 100%;
-    object-position: 50% 50%;
-    object-fit: cover;
+  height: 200px;
+  width: 100%;
+  object-position: 50% 50%;
+  object-fit: cover;
 }
 
 .card-body {
-    padding: 20px 10px;
-    text-align: justify;
-    display: flex;
-    flex-direction: column;
+  padding: 20px 10px;
+  text-align: justify;
+  display: flex;
+  flex-direction: column;
 }
 
 .btn {
-    background-color: black;
-    color: #fff;
-    display: block;
-    padding: 10px;
-    text-align: center;
-    text-decoration: none;
-    margin-top: 10px;
-    border-radius: 8px;
+  background-color: black;
+  color: #fff;
+  display: block;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 10px;
+  border-radius: 8px;
 }
 .btn-del {
-        background-color: black;
-        color: #fff;
-        display: block;
-        padding: 10px;
-        text-align: center;
-        text-decoration: none;
-        margin-top: 10px;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: 0.2s;
-    }
-
-.btn-del:hover{
-    background-color: rgb(73, 73, 73);
+  background-color: black;
+  color: #fff;
+  display: block;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
-.list-products-all{
-    
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-    
+.btn-del:hover {
+  background-color: rgb(73, 73, 73);
 }
 
-@media(min-width:480px) {
-    .container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-    }
+.list-products-all {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
 
-    .card {
-        display: flex;
-        flex-direction: column;
-        width: 380px;
+@media (min-width: 480px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
 
+  .card {
+    display: flex;
+    flex-direction: column;
+    width: 380px;
+  }
 
-    }
+  .card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
 
-    .card-body {
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .cardImage {
-        max-width: 200px;
-    }
-
-   
+  .cardImage {
+    max-width: 200px;
+  }
 }
